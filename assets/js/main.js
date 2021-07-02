@@ -412,17 +412,4 @@
         });
     });
 
-    // $('.profile_content_wrapper #plugins-tab').on('click',function(e){
-    //     var uri = window.location.toString();
-    //     if (uri.indexOf("?") > 0) {
-    //         var clean_uri = uri.substring(0, uri.indexOf("?"));
-    //         //var new_uri = clean_uri+ '#plugins'
-    //         console.log(clean_uri);
-    //         Cookies.remove('tab');
-    //         Cookies.set('tab', 'plugins');
-    //         window.location = clean_uri;
-    //         //window.history.replaceState({}, document.title, clean_uri);
-    //      }
-    // });
-
 })(window.jQuery);

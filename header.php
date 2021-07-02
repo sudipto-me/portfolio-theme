@@ -66,7 +66,7 @@ $header_script         = ( ! empty( $theme_options['theme-header-script'] ) ) ? 
                 <div class="mobile_navbar">
                     <div class="menu_icons">
                         <ul>
-                            <li><a href="<?php echo edd_get_checkout_uri(); ?>"><img src="<?php echo get_template_directory_uri() . '/assets/img/cart_icon.svg' ?>" alt="cart icon"><span class="header-cart edd-cart-quantity cart_count"><?php echo edd_get_cart_quantity(); ?></span></a></li>
+<!--                            <li><a href="--><?php //echo edd_get_checkout_uri(); ?><!--"><img src="--><?php //echo get_template_directory_uri() . '/assets/img/cart_icon.svg' ?><!--" alt="cart icon"><span class="header-cart edd-cart-quantity cart_count">--><?php //echo edd_get_cart_quantity(); ?><!--</span></a></li>-->
                             <li class="search_trigger">
                                 <img src="<?php echo get_template_directory_uri() . '/assets/img/search_icon.svg'; ?>" alt="...">
                                 <div class="search_bar">
@@ -104,7 +104,7 @@ $header_script         = ( ! empty( $theme_options['theme-header-script'] ) ) ? 
                     <!-- /.header menu -->
                     <div class="desktop_menu menu_icons">
                         <ul>
-                            <li><a href="<?php echo edd_get_checkout_uri(); ?>"><img src="<?php echo get_template_directory_uri() . '/assets/img/cart_icon.svg' ?>" alt="cart icon"><span class="header-cart edd-cart-quantity cart_count"><?php echo edd_get_cart_quantity(); ?></span></a></li>
+<!--                            <li><a href="--><?php //echo edd_get_checkout_uri(); ?><!--"><img src="--><?php //echo get_template_directory_uri() . '/assets/img/cart_icon.svg' ?><!--" alt="cart icon"><span class="header-cart edd-cart-quantity cart_count">--><?php //echo edd_get_cart_quantity(); ?><!--</span></a></li>-->
                             <li class="search_trigger">
                                 <img src="<?php echo get_template_directory_uri() . '/assets/img/search_icon.svg'; ?>" alt="...">
                                 <div class="search_bar">

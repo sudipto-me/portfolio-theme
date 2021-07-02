@@ -1,4 +1,13 @@
 <?php
+/**
+ * Theme options files goes here
+ *
+ * @since 1.0.0
+ */
+
+// don't call the file directly
+defined( 'ABSPATH' ) || exit();
+
 // Control core classes for avoid errors
 if ( class_exists( 'CSF' ) ) {
 	// Set a unique slug-like ID
