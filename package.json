@@ -1,0 +1,31 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio Theme for my personal blog",
+  "author": "Automattic Theme Team",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "WordPress",
+    "Theme"
+  ],
+  "homepage": "https://github.com/Automattic/_s#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Automattic/_s.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Automattic/_s/issues"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.4",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-uglify": "^4.0.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-sass": "~2.1.0"
+  },
+  "scripts": {
+    "build": "grunt",
+    "build-watch": "grunt watch"
+  }
+}

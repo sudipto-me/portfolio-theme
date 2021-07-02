@@ -2,12 +2,12 @@
 // Control core classes for avoid errors
 if ( class_exists( 'CSF' ) ) {
     // Set a unique slug-like ID
-    $prefix = 'abcd';
+    $prefix = 'portfolio';
     // Create options
     CSF::createOptions( $prefix, array(
-        'framework_title' => esc_html__( 'Theme Options', 'abcd' ),
-        'menu_title'      => esc_html__( 'Theme Options', 'abcd' ),
-        'menu_slug'       => 'abcd',
+        'framework_title' => esc_html__( 'Theme Options', 'portfolio' ),
+        'menu_title'      => esc_html__( 'Theme Options', 'portfolio' ),
+        'menu_slug'       => 'portfolio-options',
         'theme'           => 'light'
     ) );
     
@@ -27,40 +27,10 @@ if ( class_exists( 'CSF' ) ) {
                 'type'  => 'media',
                 'title' => 'Site Logo',
             ),
-            //top bar content
-            array(
-                'id'     => 'theme-topbar-content',
-                'type'   => 'group',
-                'title'  => 'Top Bar Content',
-                'fields' => array(
-                    array(
-                        'id'    => 'refund-text',
-                        'type'  => 'text',
-                        'title' => __('Refund Text','abcd')
-                    ),
-                    array(
-                        'id'    => 'payment-text',
-                        'type'  => 'text',
-                        'title' => __('Payment Text','abcd')
-                    ),
-                    array(
-                        'id'    => 'support-text',
-                        'type'  => 'text',
-                        'title' => __('Support Text','abcd')
-                    ),
-                ),
-                'default' => array(
-                    array(
-                        'refund-text' => __('7 Days Money-back Guarantee','abcd'),
-                        'payment-text' => __('Safe & Secure online payment','abcd'),
-                        'support-text' => __('Dedicated Support','abcd')
-                    )
-                ),
-            ),
             array(
                 'id' => 'theme-cta',
                 'type' => 'text',
-                'title' => __('My Account Page URL','abcd')
+                'title' => __('My Account Page URL','portfolio')
             ),
             array(
                 'id'    => 'theme-header-script',
@@ -83,13 +53,13 @@ if ( class_exists( 'CSF' ) ) {
             array(
                 'id'    => 'theme-copyright-content',
                 'type'  => 'wp_editor',
-                'title' => esc_html__( 'Copyright content', 'abcd' ),
+                'title' => esc_html__( 'Copyright content', 'portfolio' ),
             ),
             //footer javascript
             array(
                 'id'    => 'theme-footer-script',
                 'type'  => 'code_editor',
-                'title' => esc_html__( 'Footer Script', 'abcd' ),
+                'title' => esc_html__( 'Footer Script', 'portfolio' ),
             )
         )
     ) );
