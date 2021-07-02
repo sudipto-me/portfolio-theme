@@ -1,0 +1,143 @@
+/*
+Theme Name: ABCD
+Theme URI: https://shakahri.cc
+Author: Sudipto Shakhari
+Author URI: https://shakahri.cc/
+Description: ABCD Aesthetics theme is clean, blog & focused, and designed for clarity. It is simple, straightforward typography is readable on a wide variety of screen sizes. We designed it using a mobile-first approach, meaning your content takes center-stage, regardless of whether your visitors arrive by smartphone, tablet, laptop, or desktop computer.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: abcd
+*/
+.hide {
+    display: none;
+}
+.edd_license_key {
+    display: none !important;
+}
+.modal-open {
+    overflow: auto !important;
+    padding-right: 0 !important;
+}
+
+.documentation_search_form {
+    position: relative;
+    z-index: 1;
+}
+
+.documentation_search_form input {
+    border-radius: 5px;
+    border: 1px solid #ACA9B8;
+    width: 100%;
+    padding: 12px 50px 12px 12px;
+    height: 48px;
+    -webkit-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    color: #333333;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.documentation_search_form button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background: none;
+    outline: none !important;
+    padding: 12px;
+    cursor: pointer;
+}
+.documentation_search_form input:focus {
+    border-color: #06102B;
+}
+.single_plugin_docs .plugin_icon {
+	height: 25px;
+    object-fit: cover;
+    display: inline-block;
+	margin-right: 10px;
+}
+.single_plugin_docs h4 {
+    font-size: 25px;
+    border-bottom: 1px solid #DFDEF6;
+    padding-bottom: 13px;
+    margin-bottom: 17px;
+}
+.plugin_section,.plugin_search {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.single_plugin_docs {
+    margin-bottom: 50px;
+}
+.single_plugin_docs:last-child {
+    margin-bottom: 0;
+}
+.docs-pagination .pagination > li {
+    display: inline-block;
+}
+
+.docs-pagination .page-numbers {
+    background: transparent !important;
+    color: #2D3748 !important;
+    margin: 0 3px !important;
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+	text-align: center;
+}
+
+.docs-pagination .page-numbers.current, .docs-pagination .page-numbers:hover, .docs-pagination .page-numbers:active, .docs-pagination .page-numbers:focus{
+    background: #3E589B !important;
+	color: #ffffff !important;
+}
+
+.docs-pagination .next.page-numbers, .docs-pagination .prev.page-numbers {
+    width: auto !important;
+    height: auto !important;
+	padding-left: 5px;
+    padding-right: 5px;	
+	
+}
+.docs-pagination .next.page-numbers:hover,.docs-pagination .next.page-numbers:active,.docs-pagination .next.page-numbers:focus,.docs-pagination .prev.page-numbers:hover,.docs-pagination .prev.page-numbers:active,.docs-pagination .prev.page-numbers:focus {
+	background: #ffffff !important;
+	color: #70D6F9 !important;
+}
+
+.docs-pagination .pagination {
+    margin: 0;
+    justify-content: center;
+}
+.single_docs a,.single_plugin_docs a {
+    color: #364D88;
+    margin-bottom: 5px;
+    transition: all 0.3s linear;
+}
+.single_plugin_docs a {
+	color: #000000;
+}
+.single_docs a:hover,.single_plugin_docs a:hover, .single_docs a:focus,.single_plugin_docs a:hover {
+    color: #70D6F9;
+}
+.search_no_result,.plugin_search .load_more {
+	text-align: center;
+}
+.plugin_search .load_more img {
+    height: 100px;
+}
+@media (max-width:767px){
+	.docs-pagination .page-numbers {
+		font-size: 15px;
+		width:25px;
+		height: 25px;
+		line-height:25px;
+	}
+}
+.archive .page_title {
+	margin-bottom: 0 !important;
+}
