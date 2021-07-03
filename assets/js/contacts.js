@@ -1,3 +1,4 @@
+jQuery(document).ready(function ($) {
 'use strict';
 
 
@@ -53,3 +54,4 @@ function submitForm(e, formName) {
         }
     });
 }
+});

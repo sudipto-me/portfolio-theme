@@ -37,6 +37,17 @@ if ( class_exists( 'CSF' ) ) {
 				'type'  => 'media',
 				'title' => esc_html__( 'Site Logo', 'portfolio' ),
 			),
+			//header background image
+			array(
+				'id'    => 'theme-header-bg',
+				'type'  => 'media',
+				'title' => esc_html__( 'Header Background Image', 'portfolio' ),
+			),
+			array(
+				'id'    => 'blog-header-bg',
+				'type'  => 'media',
+				'title' => esc_html__( 'Blog Header Background Image', 'portfolio' ),
+			),
 			array(
 				'id'    => 'theme-header-script',
 				'type'  => 'code_editor',
@@ -117,6 +128,11 @@ if ( class_exists( 'CSF' ) ) {
 						'id'    => 'social-link',
 						'type'  => 'text',
 						'title' => esc_html__( 'Link', 'portfolio' ),
+					),
+					array(
+						'id'    => 'social-media-name',
+						'type'  => 'text',
+						'title' => esc_html__( 'Name', 'portfolio' ),
 					),
 				),
 			),

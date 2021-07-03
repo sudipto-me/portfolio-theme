@@ -44,7 +44,10 @@ require_once dirname( __FILE__ ) . '/includes/theme_shortcode.php';
  */
 require_once dirname( __FILE__ ) . '/includes/theme_metabox.php';
 require_once dirname( __FILE__ ) . '/includes/theme_cpt.php';
-
+/**
+ * Comment walker
+*/
+require_once dirname(__FILE__).'/classes/class-twentytwenty-walker-comment.php';
 //edd custom files
 require_once dirname( __FILE__ ) . '/classes/class-review.php';
 require_once dirname( __FILE__ ) . '/includes/custom_edd_functions.php';
@@ -56,30 +59,6 @@ include_once( THEME_ACF_PATH . 'acf.php' );
 
 //define theme verions
 define( 'PORTFOLIO_THEME_VERSION', '1.0.0' );
-
-add_filter( 'wp_nav_menu_items', 'abcd_add_menu_item', 10, 2 );
-/**
- * Add Menu Item to end of menu
- */
-function abcd_add_menu_item( $items, $args ) {
-	$request_uri = $_SERVER['REQUEST_URI'];
-	//var_dump( $request_uri );
-	if ( $args->theme_location == 'primary_navigation' ) {
-		if ( ( is_user_logged_in() && '/dashboard/' == $request_uri ) || ( is_user_logged_in() && strpos( $request_uri, '/dashboard/' ) !== false ) ) {
-			$custom_menu_link = wp_logout_url();
-			$custom_menu_text = __( 'Log Out', 'abcd' );
-		} elseif ( is_user_logged_in() && '/dashboard/' != $request_uri ) {
-			$custom_menu_link = home_url( '/dashboard' );
-			$custom_menu_text = __( 'Dashboard', 'abcd' );
-		} else {
-			$custom_menu_link = home_url( '/login' );
-			$custom_menu_text = __( 'Log In', 'abcd' );
-		}
-		$items .= '<li class="site_cta"><a href="' . $custom_menu_link . '">' . $custom_menu_text . '</a>';
-	}
-
-	return $items;
-}
 
 /**
  * Custom logout page
