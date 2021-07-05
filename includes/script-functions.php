@@ -25,6 +25,7 @@ function enqueue_style_scripts() {
 	wp_enqueue_script( 'portfolio-style-switcher-js', $themeTemplateDirectoryUrl . '/assets/js/style-switcher.js', array( 'jquery' ), PORTFOLIO_THEME_VERSION, true );
 	wp_enqueue_script( 'portfolio-menu-js', $themeTemplateDirectoryUrl . '/assets/js/menu.js', array( 'jquery' ), PORTFOLIO_THEME_VERSION, true );
 	wp_enqueue_script( 'portfolio-mobile-menu-js', $themeTemplateDirectoryUrl . '/assets/js/mobile-menu.js', array( 'jquery' ), PORTFOLIO_THEME_VERSION, true );
+	wp_enqueue_script( 'portfolio-filter-js', $themeTemplateDirectoryUrl . '/assets/js/portfolio-filter.js', array( 'jquery' ), PORTFOLIO_THEME_VERSION, true );
 
 }
 

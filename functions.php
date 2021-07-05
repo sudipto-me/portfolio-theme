@@ -46,8 +46,8 @@ require_once dirname( __FILE__ ) . '/includes/theme_metabox.php';
 require_once dirname( __FILE__ ) . '/includes/theme_cpt.php';
 /**
  * Comment walker
-*/
-require_once dirname(__FILE__).'/classes/class-twentytwenty-walker-comment.php';
+ */
+require_once dirname( __FILE__ ) . '/classes/class-twentytwenty-walker-comment.php';
 //edd custom files
 require_once dirname( __FILE__ ) . '/classes/class-review.php';
 require_once dirname( __FILE__ ) . '/includes/custom_edd_functions.php';
@@ -513,4 +513,8 @@ add_action( 'wp_ajax_search_plugin_docs', 'search_plugin_docs' );
 add_action( 'wp_ajax_nopriv_search_plugin_docs', 'search_plugin_docs' );
 
 
-
+function printr( $value ) {
+	echo '<pre>';
+	print_r( $value );
+	echo '</pre>';
+}
