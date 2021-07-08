@@ -5,6 +5,11 @@
   box-shadow: 0 1px 21px rgba(0,0,0,0.14);
   margin-bottom: 40px;
 
+  &_img {
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 35px;
+  }
   .article__back-link{
     font-size: $font-size-t6;
     line-height: $line-height-t6;
@@ -65,7 +70,7 @@
       opacity: 0.4;
       margin-left: 10px;
       font-size: 24px;
-
+      color: $color-text-main;
       &:first-child{
         margin-left: 20px;
       }

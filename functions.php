@@ -51,6 +51,10 @@ require_once dirname( __FILE__ ) . '/classes/class-twentytwenty-walker-comment.p
 //edd custom files
 require_once dirname( __FILE__ ) . '/classes/class-review.php';
 require_once dirname( __FILE__ ) . '/includes/custom_edd_functions.php';
+/**
+ * Template Functions
+ */
+require_once dirname( __FILE__ ) . '/includes/template-functions.php';
 
 // Define path and URL to the ACF plugin.
 define( 'THEME_ACF_PATH', get_stylesheet_directory() . '/includes/acf/' );
