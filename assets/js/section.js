@@ -51,6 +51,7 @@ jQuery(document).ready(function ($) {
         "#testimonials_header": '70%',
         "#blog_header": '70%',
         "#contacts_header": '70%',
-        "#other_posts": '70%'
+        "#other_posts": '70%',
+        "#blog_page_header": '70%'
     });
 });

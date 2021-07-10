@@ -8,7 +8,6 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="row">
         <div class="col-md-12">
-			<?php ?>
             <a class="article__back-link" href="<?php echo esc_url( isset( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : get_site_url() ) ?>"><i class="fa fa-long-arrow-left" aria-hidden="true"></i><?php echo esc_html__( 'Back', 'portfolio' ) ?></a>
             <p class="article__title"><?php echo esc_html( get_the_title() ); ?></p>
             <p class="article_date"><?php echo get_the_date( "F j, Y", get_the_ID() ); ?></p>
@@ -70,3 +69,13 @@
 	}
 	?>
 </section>
+
+<!-- If comments are open or we have at least one comment, load up the comment template. -->
+<div class="row">
+    <div class="col-md-8">
+	    <?php if ( comments_open() || '0' != get_comments_number() ) { ?>
+		    <?php comments_template(); ?>
+	    <?php } ?>
+    </div>
+</div>
+

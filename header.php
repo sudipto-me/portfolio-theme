@@ -133,6 +133,39 @@ if ( is_front_page() ):
 <?php else: ?>
     <!--Header-->
     <header class="background blog-header" style="background-image: url(<?php echo esc_url( $blog_header_background ); ?>)">
+		<?php
+		if ( ! is_single() ) {
+			?>
+            <div class="header-title container">
+                <div class="row">
+                    <div class="col-md-12">
+						<?php if ( ! is_post_type_archive( 'portfolio-projects' ) ): ?>
+                            <h1 class="portfolio-page-title"><?php echo get_the_title( get_queried_object_id() ); ?></h1>
+						<?php elseif ( is_post_type_archive( 'portfolio-projects' ) ): ?>
+                            <h1 class="portfolio-page-title"><?php echo esc_html__( 'Projects', 'portfolio' ); ?></h1>
+						<?php else: ?>
+                            <h1 class="portfolio-page-title"><?php echo get_the_archive_title(); ?></h1>
+						<?php endif; ?>
+						<?php
+						if ( is_home() ) {
+							echo '<p class="portfolio-page-subtitle">' . __( 'Tips, tricks, Reviews and eCommerce inspiration', 'portfolio' ) . '</p>';
+						} elseif ( is_post_type_archive( 'portfolio-projects' ) ) {
+							echo '<p class="portfolio-page-subtitle">' . __( 'Completed Projects with live link', 'portfolio' ) . '</p>';
+						} else {
+							do_action( 'plugins/wp_subtitle/the_subtitle', array(
+								'before'        => '<p class="portfolio-page-subtitle">',
+								'after'         => '</p>',
+								'post_id'       => get_queried_object_id(),
+								'default_value' => ''
+							) );
+						}
+						?>
+                    </div>
+                </div>
+            </div>
+			<?php
+		}
+		?>
     </header>
     <!--Header-->
 <?php endif; ?>

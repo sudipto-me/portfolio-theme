@@ -253,7 +253,6 @@ function custom_comment_form_defaults( $fields ) {
 	$user          = wp_get_current_user();
 	$user_identity = $user->exists() ? $user->display_name : '';
 
-
 	if ( ! isset( $args['format'] ) ) {
 		$args['format'] = current_theme_supports( 'html5', 'comment-form' ) ? 'html5' : 'xhtml';
 	}
@@ -261,7 +260,6 @@ function custom_comment_form_defaults( $fields ) {
 	$req      = get_option( 'require_name_email' );
 	$html_req = ( $req ? " required='required'" : '' );
 	$html5    = 'html5' === $args['format'];
-
 	$fields['author'] = sprintf(
 		'<div class="form_author_wrapper"><p class="comment-form-author">%s %s</p>',
 		sprintf(
@@ -293,8 +291,8 @@ function custom_comment_form_defaults( $fields ) {
 		'<p class="comment-form-url">%s %s</p>',
 		sprintf(
 			'<label for="url">%s%s</label>',
-			__( 'Website', 'abcd' ),
-			__( ' (Optional) ', 'abcd' )
+			__( 'Website', 'portfolio' ),
+			__( ' (Optional) ', 'portfolio' )
 		),
 		sprintf(
 			'<input id="url" name="url" %s value="%s" size="30" maxlength="200" />',

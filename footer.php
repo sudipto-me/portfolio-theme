@@ -1,5 +1,5 @@
 <?php
-$theme_options = get_option( 'abcd' );
+$theme_options = get_option( 'portfolio' );
 $footer_bg     = ( ! empty( $theme_options['theme-footer-bg']['url'] ) ) ? $theme_options['theme-footer-bg']['url'] : get_template_directory_uri() . '/assets/img/footer-background.jpg';
 $copyright     = ( ! empty( $theme_options['theme-copyright-content'] ) ) ? $theme_options['theme-copyright-content'] : '';
 $footer_script = ( ! empty( $theme_options['footer-script'] ) ) ? $theme_options['footer-script'] : '';

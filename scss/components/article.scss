@@ -63,7 +63,21 @@
       font-style: italic;
     }
   }
-
+  .article_live__link {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: $color-text-main;
+    display: block;
+  }
+  .article_used_stacks p,.single-blog-item-used_stacks p {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  .article_used_stacks .tags, .single-blog-item-used_stacks .tags {
+    display: inline-block;
+  }
   .article__share{
 
     a{
@@ -89,4 +103,7 @@
   @media screen and (max-width: 576px){
     padding: 30px 10px 40px 10px;
   }
+}
+.article.page {
+  margin-top: 0;
 }
