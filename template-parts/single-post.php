@@ -32,6 +32,15 @@
         </div>
     </div>
     <!-- /.row -->
+    <div class="row">
+        <div class="col-md-8">
+            <div class="portfolio-comments">
+	            <?php if ( comments_open() || get_comments_number() ) { ?>
+		            <?php comments_template(); ?>
+	            <?php } ?>
+            </div>
+        </div>
+    </div>
 </article>
 <section id="posts" class="container section">
     <div class="row">
@@ -69,13 +78,4 @@
 	}
 	?>
 </section>
-
-<!-- If comments are open or we have at least one comment, load up the comment template. -->
-<div class="row">
-    <div class="col-md-8">
-	    <?php if ( comments_open() || '0' != get_comments_number() ) { ?>
-		    <?php comments_template(); ?>
-	    <?php } ?>
-    </div>
-</div>
 

@@ -49,8 +49,8 @@ require_once dirname( __FILE__ ) . '/includes/theme_cpt.php';
  */
 require_once dirname( __FILE__ ) . '/classes/class-twentytwenty-walker-comment.php';
 //edd custom files
-require_once dirname( __FILE__ ) . '/classes/class-review.php';
-require_once dirname( __FILE__ ) . '/includes/custom_edd_functions.php';
+//require_once dirname( __FILE__ ) . '/classes/class-review.php';
+//require_once dirname( __FILE__ ) . '/includes/custom_edd_functions.php';
 /**
  * Template Functions
  */
@@ -74,7 +74,7 @@ function abcd_redirect_after_logout() {
 	exit();
 }
 
-add_action( 'wp_logout', 'abcd_redirect_after_logout' );
+//add_action( 'wp_logout', 'abcd_redirect_after_logout' );
 
 /**
  *  Post types for search
@@ -100,7 +100,7 @@ function custom_search_posttype( $query ) {
 	return $query;
 }
 
-add_filter( 'pre_get_posts', 'custom_search_posttype' );
+//add_filter( 'pre_get_posts', 'custom_search_posttype' );
 
 /**
  * Add subtitle support to downloads
@@ -110,7 +110,7 @@ function edd_add_subtitles_support() {
 	add_post_type_support( 'download', 'wps_subtitle' );
 }
 
-add_action( 'init', 'edd_add_subtitles_support' );
+//add_action( 'init', 'edd_add_subtitles_support' );
 
 /**
  * ajax functions for load more logs
@@ -145,8 +145,8 @@ function load_more_logs() {
 	die();
 }
 
-add_action( 'wp_ajax_load_more_logs', 'load_more_logs' );
-add_action( 'wp_ajax_nopriv_load_more_logs', 'load_more_logs' );
+//add_action( 'wp_ajax_load_more_logs', 'load_more_logs' );
+//add_action( 'wp_ajax_nopriv_load_more_logs', 'load_more_logs' );
 
 //reviews load more
 function load_more_reviews() {
@@ -164,8 +164,8 @@ function load_more_reviews() {
 	die();
 }
 
-add_action( 'wp_ajax_load_more_reviews', 'load_more_reviews' );
-add_action( 'wp_ajax_nopriv_load_more_reviews', 'load_more_reviews' );
+//add_action( 'wp_ajax_load_more_reviews', 'load_more_reviews' );
+//add_action( 'wp_ajax_nopriv_load_more_reviews', 'load_more_reviews' );
 
 //add popup html in the footer
 function custom_popup_html() {
@@ -187,7 +187,7 @@ function custom_popup_html() {
 	<?php
 }
 
-add_action( 'wp_footer', 'custom_popup_html' );
+//add_action( 'wp_footer', 'custom_popup_html' );
 
 /**
  * Change custom login url to new url
@@ -210,7 +210,7 @@ function custom_comment_number( $comments_per_page, $comment_status ) {
 	return $comments_per_page;
 }
 
-add_filter( 'comments_per_page', 'custom_comment_number', 10, 2 );
+//add_filter( 'comments_per_page', 'custom_comment_number', 10, 2 );
 
 /**
  * Redirect to login page if my-account page is typed when logged out
@@ -222,7 +222,7 @@ function my_account_redirect() {
 	}
 }
 
-add_action( 'template_redirect', 'my_account_redirect' );
+//add_action( 'template_redirect', 'my_account_redirect' );
 
 /**
  *
@@ -305,7 +305,7 @@ function custom_comment_form_defaults( $fields ) {
 	return $fields;
 }
 
-add_filter( 'comment_form_default_fields', 'custom_comment_form_defaults' );
+//add_filter( 'comment_form_default_fields', 'custom_comment_form_defaults' );
 
 /**
  * Change comment author name
@@ -368,7 +368,7 @@ function custom_comment_validation_init() {
 	}
 }
 
-add_action( 'wp_footer', 'custom_comment_validation_init' );
+//add_action( 'wp_footer', 'custom_comment_validation_init' );
 
 //add license key popup html in the footer
 function license_popup_html() {
@@ -410,7 +410,7 @@ function license_popup_html() {
 	<?php
 }
 
-add_action( 'wp_footer', 'license_popup_html' );
+//add_action( 'wp_footer', 'license_popup_html' );
 
 function custom_edd_subscriber_user_role( $args, $payment_id, $payment_data ) {
 	$args['role'] = 'edd_subscriber';
@@ -436,7 +436,7 @@ function remove_cookie_after_logout() {
 	}
 }
 
-add_action( 'wp_logout', 'remove_cookie_after_logout' );
+//add_action( 'wp_logout', 'remove_cookie_after_logout' );
 
 //search plugin docs
 function search_plugin_docs() {
@@ -511,8 +511,8 @@ function search_plugin_docs() {
 	wp_die();
 }
 
-add_action( 'wp_ajax_search_plugin_docs', 'search_plugin_docs' );
-add_action( 'wp_ajax_nopriv_search_plugin_docs', 'search_plugin_docs' );
+//add_action( 'wp_ajax_search_plugin_docs', 'search_plugin_docs' );
+//add_action( 'wp_ajax_nopriv_search_plugin_docs', 'search_plugin_docs' );
 
 
 function printr( $value ) {

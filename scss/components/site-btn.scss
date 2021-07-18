@@ -27,9 +27,9 @@
   &.site-btn--form{
     width: 100%;
     border: none !important;
-    box-shadow: $box-shadow-btn;
+    box-shadow: $box-shadow-btn !important;
     position: relative;
-
+    border-radius: 25px !important;
     &:hover{
       background-color: $color-accent-additional !important;
     }

@@ -53,7 +53,7 @@ function display_year_shortcode_callback() {
 /**
  * Review shortcode
  */
-add_shortcode( 'show_review', 'show_review_shortcode_callback' );
+// add_shortcode( 'show_review', 'show_review_shortcode_callback' );
 function show_review_shortcode_callback() {
     global $post;
     ob_start();
@@ -70,7 +70,7 @@ function show_review_shortcode_callback() {
 /**
  * Thank you shortcode
  */
-add_shortcode( 'custom_edd_thank_you', 'custom_edd_thank_you_shortcode_callback' );
+// add_shortcode( 'custom_edd_thank_you', 'custom_edd_thank_you_shortcode_callback' );
 function custom_edd_thank_you_shortcode_callback() {
     ob_start();
     ?>
@@ -96,7 +96,7 @@ function custom_edd_thank_you_shortcode_callback() {
 /**
  * Our Plugins short code
  */
-add_shortcode( 'custom_plugin_list', 'custom_plugin_list_shortcode_callback' );
+// add_shortcode( 'custom_plugin_list', 'custom_plugin_list_shortcode_callback' );
 function custom_plugin_list_shortcode_callback( $attrs, $content = null ) {
     ob_start();
     $posts_per_page = ! empty( $attrs['count'] ) ? $attrs['count'] : 3;
@@ -152,7 +152,7 @@ function custom_plugin_list_shortcode_callback( $attrs, $content = null ) {
 /**
  * recent posts shortcode
  */
-add_shortcode( 'custom_recent_post', 'custom_recent_post_shortcode_callback' );
+// add_shortcode( 'custom_recent_post', 'custom_recent_post_shortcode_callback' );
 function custom_recent_post_shortcode_callback( $attrs, $content = null ) {
     ob_start();
     $posts_per_page = ! empty( $attrs['count'] ) ? $attrs['count'] : 5;
@@ -195,7 +195,7 @@ function custom_recent_post_shortcode_callback( $attrs, $content = null ) {
 /**
  * Add shortcode for categories
 */
-add_shortcode('custom_category','custom_category_shortcode_callback');
+// add_shortcode('custom_category','custom_category_shortcode_callback');
 function custom_category_shortcode_callback($attrs,$content=null) {
     ob_start();
     $count = ! empty( $attrs['count'] ) ? $attrs['count'] : 5;

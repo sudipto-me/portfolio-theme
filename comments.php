@@ -32,7 +32,6 @@ if ( post_password_required() ) {
 	);
 	comment_form( $comment_form_args ); ?>
 	<?php if ( have_comments() ) : ?>
-
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
             <nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
                 <h1 class="screen-reader-text"><?php _e( 'Comment navigation', 'portfolio' ); ?></h1>
@@ -43,9 +42,9 @@ if ( post_password_required() ) {
 
         <div class="comment_wrapper">
             <div class="reply_title_wrapper">
-                <div class="reply_title">
-                    <h3><?php echo esc_html__( 'Leave a Reply', 'portfolio' ); ?></h3>
-                </div>
+<!--                <div class="reply_title">-->
+<!--                    <h3>--><?php //echo esc_html__( 'Leave a Reply', 'portfolio' ); ?><!--</h3>-->
+<!--                </div>-->
             </div>
             <ol class="comment-list">
 				<?php
