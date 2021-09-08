@@ -46,8 +46,8 @@ get_header(); ?>
                         <?php
                         echo '<div class="blog-pagination text-center">';
                         the_posts_pagination( array(
-                            'prev_text'          => __( ' << Previous ', 'abcd' ),
-                            'next_text'          => __( 'Next >>', 'abcd' ),
+                            'prev_text'          => __( ' << Previous ', 'portfolio' ),
+                            'next_text'          => __( 'Next >>', 'portfolio' ),
                             'before_page_number' => '',
                             'screen_reader_text' => ' '
                         ) );

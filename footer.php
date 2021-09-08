@@ -10,7 +10,7 @@ $footer_script = ( ! empty( $theme_options['footer-script'] ) ) ? $theme_options
     <div class="container section">
         <div class="row">
             <div class="col-md-12">
-                <p id="contacts_header" class="section__title"><?php echo esc_html__( 'Get in touch_', '' ); ?></p>
+                <p id="contacts_header" class="section__title"><?php echo esc_html__( 'Get in touch_', 'portfolio' ); ?></p>
             </div>
         </div>
         <div class="row contacts">
