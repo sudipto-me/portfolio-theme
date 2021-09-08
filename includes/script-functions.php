@@ -9,6 +9,7 @@ function enqueue_style_scripts() {
 	$themeTemplateDirectoryUrl = get_template_directory_uri();
 	wp_enqueue_style( 'custom-google-fonts', '//fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Inconsolata', false );
 	wp_enqueue_style( 'custom-material-icons', '//cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css', false );
+	wp_enqueue_style( 'font-awesome-icons', $themeTemplateDirectoryUrl.'/assets/css/font-awesome.min.css', false, PORTFOLIO_THEME_VERSION );
 	wp_enqueue_style( 'portfolio-main', $themeTemplateDirectoryUrl . '/assets/css/main.css', '', PORTFOLIO_THEME_VERSION, 'all' );
 	if ( ! is_admin() && ! wp_script_is( 'jquery' ) ) {
 		wp_enqueue_script( 'jquery' );

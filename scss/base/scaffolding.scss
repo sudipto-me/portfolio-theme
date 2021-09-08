@@ -37,7 +37,7 @@ a{
 
   &:hover, &:focus, a:active{
     color: $color-accent;
-    text-decoration: underline;
+    text-decoration: none;
   }
 }
 
@@ -62,7 +62,7 @@ nav {
           position: absolute;
           width: 7px;
           height: 2px;
-          bottom: 0px;
+          bottom: 0;
           right: 42px;
           opacity: 0;
           transition: background 0.3s;

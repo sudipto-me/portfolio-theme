@@ -11,14 +11,11 @@ function footer_social_shortcode_callback( $atts, $content = null ) {
     $contact_skype         = ! empty( $theme_options['contact-skype'] ) ? $theme_options['contact-skype'] : 'sudipto.ruet';
     ?>
     <div class="contacts__list">
-        <dl class="contact-list">
-            <dt><?php echo esc_attr__("Phone:","portfolio");?></dt>
-            <dd><a href="<?php echo 'tel:' . esc_attr( $contact_phone ); ?>"><?php echo esc_attr( $contact_phone ); ?></a></dd>
-            <dt><?php echo esc_attr__("Skype:","portfolio");?></dt>
-            <dd><a href="<?php echo 'skype:' . esc_attr( $contact_skype ); ?>"><?php echo esc_attr( $contact_skype ); ?></a></dd>
-            <dt><?php echo esc_attr__("Email:","portfolio");?></dt>
-            <dd><a href="<?php echo 'mailto:' . sanitize_email( $contact_email ); ?>"><?php echo sanitize_email( $contact_email ); ?></a></dd>
-        </dl>
+        <ul class="contact-list">
+            <li><i class="fa fa-phone"></i><a href="<?php echo 'tel:' . esc_attr( $contact_phone ); ?>"><?php echo esc_attr( $contact_phone ); ?></a></li>
+            <li><i class="fa fa-skype"></i><a href="<?php echo 'skype:' . esc_attr( $contact_skype ); ?>"><?php echo esc_attr( $contact_skype ); ?></a></li>
+            <li><i class="fa fa-envelope"></i><a href="<?php echo 'mailto:' . sanitize_email( $contact_email ); ?>"><?php echo sanitize_email( $contact_email ); ?></a></li>
+        </ul>
     </div>
 <?php
     if ( is_array( $social_links ) && ! empty( $social_links ) ) { ?>
@@ -28,7 +25,7 @@ function footer_social_shortcode_callback( $atts, $content = null ) {
                 foreach ( $social_links as $social ) {
                     if ( isset( $social['social-link'] ) && ! empty( $social['social-link'] ) ) {
                         ?>
-                        <li><a href="<?php echo $social['social-link']; ?>" target="_blank"><?php echo esc_attr__( $social['social-media-name'],'portfolio');?></a></li>
+                        <li><a href="<?php echo $social['social-link']; ?>" target="_blank"><i class="<?php echo esc_attr__( $social['social-icon'],'portfolio');?>"></i></a></li>
                         <?php
                     }
                 }
