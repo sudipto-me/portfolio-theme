@@ -10,11 +10,6 @@ if [[ -z "$PRIVATE_KEY" ]]; then
     exit 1
 fi
 
-if [[ -z "$USERNAME" ]]; then
-    echo "USERNAME is not defined" 1>&2
-    exit 1
-fi
-
 if [[ -z "$SERVER_IP" ]]; then
     echo "SERVER_IP is not defined" 1>&2
     exit 1
