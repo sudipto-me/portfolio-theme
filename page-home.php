@@ -14,6 +14,7 @@ get_header();
         <div class="row">
             <div class="col-md-10">
                 <h2 id="hello_header" class="section__title"><?php echo get_field( 'hello_intro' ) ? get_field( 'hello_intro' ) : __( 'Hi_', 'portfolio' ); ?></h2>
+                <?php echo 'hello world';?>
                 <p class="section__description"><?php echo get_field( 'hello_description' ); ?></p>
 				<?php $cv = get_field( 'download_cv' ); ?>
                 <a href="<?php echo esc_url( $cv['url'] ); ?>" class="section_btn site-btn"><img src="<?php echo get_template_directory_uri() . '/assets/img/img_btn_icon.png' ?>" alt=""><?php echo esc_attr__( 'Download CV', 'portfolio' ); ?></a>
