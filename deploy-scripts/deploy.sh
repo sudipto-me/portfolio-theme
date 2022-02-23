@@ -25,6 +25,8 @@ if [[ -z "$SERVER_DESTINATION" ]]; then
     exit 1
 fi
 
+echo $HOME
+
 SSHPATH="$HOME/.ssh"
 mkdir -p "$SSHPATH"
 echo "$PRIVATE_KEY" > "$SSHPATH/authorized_keys"
