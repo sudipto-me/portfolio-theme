@@ -28,7 +28,7 @@ fi
 SSHPATH="$HOME/.ssh"
 mkdir -p "$SSHPATH"
 echo "$PRIVATE_KEY" > "$SSHPATH/key"
-chmod 600 "$SSHPATH/key"
+chmod 600 "$SSHPATH/authorized_keys"
 SERVER_DEPLOY_STRING="$USERNAME@$SERVER_IP:$SERVER_DESTINATION"
 
 # Copy files.
