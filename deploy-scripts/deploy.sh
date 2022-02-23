@@ -10,6 +10,11 @@ if [[ -z "$PRIVATE_KEY" ]]; then
     exit 1
 fi
 
+if [[ -z "$USERNAME" ]]; then
+    echo "USERNAME is not defined" 1>&2
+    exit 1
+fi
+
 if [[ -z "$SERVER_IP" ]]; then
     echo "SERVER_IP is not defined" 1>&2
     exit 1
@@ -24,7 +29,7 @@ SSHPATH="$HOME/.ssh"
 mkdir -p "$SSHPATH"
 echo "$PRIVATE_KEY" > "$SSHPATH/key"
 chmod 600 "$SSHPATH/key"
-SERVER_DEPLOY_STRING="$SERVER_IP:$SERVER_DESTINATION"
+SERVER_DEPLOY_STRING="$USERNAME@$SERVER_IP:$SERVER_DESTINATION"
 
 # Copy files.
 sh -c "rsync -vrxc --no-group --no-owner --delete -e 'ssh -i $SSHPATH/key -o StrictHostKeyChecking=no' $FOLDER $SERVER_DEPLOY_STRING --exclude-from=./deploy-scripts/distignore.txt"
