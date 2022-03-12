@@ -1,8 +1,6 @@
 <?php
 $theme_options = get_option( 'portfolio' );
-$footer_bg     = ( ! empty( $theme_options['theme-footer-bg']['url'] ) ) ? $theme_options['theme-footer-bg']['url'] : get_template_directory_uri() . '/assets/img/footer-background.jpg';
-$copyright     = ( ! empty( $theme_options['theme-copyright-content'] ) ) ? $theme_options['theme-copyright-content'] : '';
-$footer_script = ( ! empty( $theme_options['footer-script'] ) ) ? $theme_options['footer-script'] : '';
+$footer_bg     = ( ! empty( get_theme_mod( 'footer-background-img' ) ) ) ? wp_get_attachment_url( get_theme_mod( 'footer-background-img' ) ) : get_template_directory_uri() . '/assets/img/footer-background.jpg';
 ?>
 </main>
 
@@ -26,13 +24,9 @@ $footer_script = ( ! empty( $theme_options['footer-script'] ) ) ? $theme_options
 	        <?php endif; ?>
         </div>
         <div class="footer">
-	        <?php if ( ! empty( $copyright ) ) {
-		        echo '<div class="copyright-text">';
-		        echo '<p>' . do_shortcode( $copyright );
-		        echo '</p></div>';
-	        } else {
+	        <?php
 		        echo do_shortcode( '<p>' . "&copy; [display_year] Sudipto Shakhari All Rights Reserved." . '</p>' );
-	        } ?>
+	         ?>
         </div>
     </div>
 </footer>

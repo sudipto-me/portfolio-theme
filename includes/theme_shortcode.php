@@ -2,13 +2,11 @@
 /**
  * Footer Social Shortcode
  */
-function footer_social_shortcode_callback( $atts, $content = null ) {
+function footer_social_shortcode_callback( $attrs, $content = null ) {
     ob_start();
-    $theme_options = get_option( 'portfolio' );
-    $social_links  = $theme_options['theme-social-repeater'];
-    $contact_phone           = ! empty( $theme_options['contact-phone'] ) ? $theme_options['contact-phone'] : '+880-1921378547';
-    $contact_email           = ! empty( $theme_options['contact-email'] ) ? $theme_options['contact-email'] : 'shakhari.sudipto@gmail.com';
-    $contact_skype         = ! empty( $theme_options['contact-skype'] ) ? $theme_options['contact-skype'] : 'sudipto.ruet';
+    $contact_phone           = ! empty( get_theme_mod( 'contact-phn' ) ) ? get_theme_mod( 'contact-phn' ) : '+880-1921378547';
+    $contact_email           = ! empty( get_theme_mod( 'contact-email' ) ) ? get_theme_mod( 'contact-email' ) : 'shakhari.sudipto@gmail.com';
+    $contact_skype         = ! empty( get_theme_mod( 'contact-address' ) ) ? get_theme_mod( 'contact-address' ) : 'sudipto.ruet';
     ?>
     <div class="contacts__list">
         <ul class="contact-list">
@@ -17,23 +15,14 @@ function footer_social_shortcode_callback( $atts, $content = null ) {
             <li><i class="fa fa-envelope"></i><a href="<?php echo 'mailto:' . sanitize_email( $contact_email ); ?>"><?php echo sanitize_email( $contact_email ); ?></a></li>
         </ul>
     </div>
-<?php
-    if ( is_array( $social_links ) && ! empty( $social_links ) ) { ?>
             <div class="contacts__social">
                 <ul>
-                <?php
-                foreach ( $social_links as $social ) {
-                    if ( isset( $social['social-link'] ) && ! empty( $social['social-link'] ) ) {
-                        ?>
-                        <li><a href="<?php echo $social['social-link']; ?>" target="_blank"><i class="<?php echo esc_attr__( $social['social-icon'],'portfolio');?>"></i></a></li>
-                        <?php
-                    }
-                }
-                ?>
+                    <li><a href="<?php echo ! empty( get_theme_mod( 'contact-github' ) ) ? esc_url( get_theme_mod( 'contact-github' ) ) : '#' ?>" target="_blank"><i class="fa fa-github"></i></a></li>
+                    <li><a href="<?php echo ! empty( get_theme_mod( 'contact-linkedin' ) ) ? esc_url( get_theme_mod( 'contact-linkedin' ) ) : '#' ?>" target="_blank"><i class="fa fa-linkedin-square"></i></a></li>
+                    <li><a href="<?php echo ! empty( get_theme_mod( 'contact-facebook' ) ) ? esc_url( get_theme_mod( 'contact-facebook' ) ) : '#' ?>" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
                 </ul>
             </div>
         <?php
-    }
     return ob_get_clean();
 }
 

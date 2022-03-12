@@ -11,16 +11,13 @@
 ?>
 
 <?php
-$theme_options          = get_option( 'portfolio' );
-$logo                   = ( ! empty( $theme_options['theme-header-logo']['url'] ) ) ? $theme_options['theme-header-logo']['url'] : get_template_directory_uri() . '/assets/img/header_logo.svg';
-$logo_alt               = ( ! empty( $theme_options['theme-header-logo']['alt'] ) ) ? $theme_options['theme-header-logo']['alt'] : esc_html__( 'Site Logo', 'portfolio' );
-$header_background      = ! empty( $theme_options['theme-header-bg']['url'] ) ? $theme_options['theme-header-bg']['url'] : get_template_directory_uri() . '/assets/img/header-background.jpg';
-$blog_header_background = ! empty( $theme_options['blog-header-bg']['url'] ) ? $theme_options['blog-header-bg']['url'] : get_template_directory_uri() . '/assets/img/blog-header-background.jpg';
-$header_background_alt  = ! empty( $theme_options['theme-header-bg']['alt'] ) ? $theme_options['theme-header-bg']['alt'] : esc_html__( 'Header Background', 'portfolio' );
-$header_script          = ( ! empty( $theme_options['theme-header-script'] ) ) ? $theme_options['theme-header-script'] : '';
-$header_phone           = ! empty( $theme_options['contact-phone'] ) ? $theme_options['contact-phone'] : '+880-1921378547';
-$header_email           = ! empty( $theme_options['contact-email'] ) ? $theme_options['contact-email'] : 'shakhari.sudipto@gmail.com';
-$header_address         = ! empty( $theme_options['contact-address'] ) ? $theme_options['contact-address'] : 'House: 193, Road: 2, Avenue: 3, Mirpur Dohs, Dhaka, 1216, Bangladesh';
+
+$header_background      = ! empty( get_theme_mod( 'home-banner-img' ) ) ? wp_get_attachment_url( get_theme_mod( 'home-banner-img' ) ) : get_template_directory_uri() . '/assets/img/header-background.jpg';
+$blog_header_background = ! empty( get_theme_mod( 'blog-banner-img' ) ) ? wp_get_attachment_url( get_theme_mod( 'blog-banner-img' ) ) : get_template_directory_uri() . '/assets/img/blog-header-background.jpg';
+$header_background_alt  = ! empty( get_theme_mod( 'home-banner-img' ) ) ? wp_get_attachment_caption( get_theme_mod( 'home-banner-img' ) ) : esc_html__( 'Header Background', 'portfolio' );
+$header_phone           = ! empty( get_theme_mod( 'contact-phn' ) ) ? get_theme_mod( 'contact-phn' ) : '+880-1921378547';
+$header_email           = ! empty( get_theme_mod( 'contact-email' ) ) ? get_theme_mod( 'contact-email' ) : 'shakhari.sudipto@gmail.com';
+$header_address         = ! empty( get_theme_mod( 'contact-address' ) ) ? get_theme_mod( 'contact-address' ) : 'House: 29, Road: 12, Mirpur Pallabi, Dhaka, 1216, Bangladesh';
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -31,9 +28,6 @@ $header_address         = ! empty( $theme_options['contact-address'] ) ? $theme_
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php wp_head(); ?>
-	<?php if ( ! empty( $header_script ) ) {
-		echo $header_script;
-	} ?>
 </head>
 
 <body <?php body_class(); ?>>
@@ -103,15 +97,15 @@ if ( is_front_page() ):
         <div class="container">
             <div class="row personal-profile">
                 <div class="col-md-4 personal-profile__avatar">
-                    <img class="img-fluid" src="<?php echo esc_url( "//via.placeholder.com/350x400" ); ?>" alt="<?php echo esc_attr__( "avatar", "portfolio" ); ?>">
+                    <img class="img-fluid" src="<?php echo ! empty( get_theme_mod( 'home-avatar' ) ) ? wp_get_attachment_url( get_theme_mod( 'home-avatar' ) ) : esc_url( "//via.placeholder.com/350x400" ); ?>" alt="<?php echo esc_attr__( "avatar", "portfolio" ); ?>">
                 </div>
                 <div class="col-md-8">
-                    <p class="personal-profile__name"><?php echo esc_html__( "Sudipto Shakhari", "portfolio" ); ?></p>
-                    <p class="personal-profile__work"><?php echo esc_html__( "WordPress Developer, WordPress Plugin-Engineer", "portfolio" ); ?></p>
+                    <p class="personal-profile__name"><?php echo ! empty( get_theme_mod( 'portfolio-name' ) ) ? get_theme_mod( 'portfolio-name' ) : esc_html__( "Sudipto Shakhari", "portfolio" ); ?></p>
+                    <p class="personal-profile__work"><?php echo ! empty( get_theme_mod( 'portfolio-designation' ) ) ? get_theme_mod( 'portfolio-designation' ) : esc_html__( "WordPress Developer, WordPress Plugin-Engineer", "portfolio" ); ?></p>
                     <div class="personal-profile__contacts">
                         <dl class="contact-list contact-list__opacity-titles">
                             <dt><?php esc_html_e( "Age", "portfolio" ); ?></dt>
-                            <dd><?php esc_html_e( "27", "portfolio" ) ?></dd>
+                            <dd><?php echo ! empty( get_theme_mod( 'portfolio-age' ) ) ? get_theme_mod( 'portfolio-age' ) : esc_html__( "27", "portfolio" ) ?></dd>
                             <dt><?php esc_html_e( "Phone:", "portfolio" ); ?></dt>
                             <dd><a href="<?php echo 'tel:' . esc_attr( $header_phone ); ?>"><?php echo esc_attr( $header_phone ); ?></a></dd>
                             <dt><?php esc_html_e( "Email:", "portfolio" ); ?></dt>
@@ -121,10 +115,9 @@ if ( is_front_page() ):
                         </dl>
                     </div>
                     <p class="personal-profile__social">
-						<?php if ( ! empty( $theme_options['theme-social-repeater'] ) ): ?>
-							<?php foreach ( $theme_options['theme-social-repeater'] as $social ): ?>
-                                <a href="<?php echo esc_url( $social['social-link'] ); ?>" target="_blank"><i class="<?php echo $social['social-icon'] ?>"></i></a>
-							<?php endforeach;endif; ?>
+                        <a href="<?php echo ! empty( get_theme_mod( 'contact-github' ) ) ? esc_url( get_theme_mod( 'contact-github' ) ) : '#' ?>" target="_blank"><i class="fa fa-github"></i></a>
+                        <a href="<?php echo ! empty( get_theme_mod( 'contact-linkedin' ) ) ? esc_url( get_theme_mod( 'contact-linkedin' ) ) : '#' ?>" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+                        <a href="<?php echo ! empty( get_theme_mod( 'contact-facebook' ) ) ? esc_url( get_theme_mod( 'contact-facebook' ) ) : '#' ?>" target="_blank"><i class="fa fa-facebook-square"></i></a>
                     </p>
                 </div>
             </div>

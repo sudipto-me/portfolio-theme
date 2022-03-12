@@ -11,18 +11,11 @@ defined( 'ABSPATH' ) || exit();
  * Theme Setup Functions
  */
 require_once dirname( __FILE__ ) . '/includes/setup-functions.php';
+
 /**
- * Codestar Framework
- */
-require_once dirname( __FILE__ ) . '/lib/csf/codestar-framework/codestar-framework.php';
-/**
- * Admin Options
- */
-require_once dirname( __FILE__ ) . '/lib/csf/admin-options.php';
-/**
- * metabox
- */
-require_once dirname( __FILE__ ) . '/lib/csf/metabox.php';
+ * Add customizer as theme options
+*/
+require_once dirname( __FILE__ ). '/includes/theme-customizer.php';
 /**
  * Bootstrap Nav Walker for this theme.
  */
