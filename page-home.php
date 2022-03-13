@@ -120,9 +120,7 @@ get_header();
 			)
 		);
 		if ( is_array( $projects ) && count( $projects ) ):
-		foreach ( $projects
-
-		as $project ) : ?>
+		foreach ( $projects as $project ) : ?>
         <div class="portfolio-cards">
 			<?php
 			$project_category = get_the_terms( $project, 'project_cat' );
