@@ -1,6 +1,6 @@
 <?php get_header(); ?>
     <section class="title-header">
-        <h2 class="media-heading p-v-sm text-center"><?php echo __( 'Search results for:', 'abcd' ); ?> <span><?php echo get_search_query(); ?></span></h2>
+        <h2 class="media-heading p-v-sm text-center"><?php echo __( 'Search results for:', 'portfolio' ); ?> <span><?php echo get_search_query(); ?></span></h2>
     </section>
 
     <section class="inner_page_wrapper section_padding area">
@@ -8,7 +8,7 @@
         if ( have_posts() && strlen( trim( get_search_query() ) ) != 0 ) { ?>
         <article class="container">
             <div class="plugins_content area">
-                <h4><img src="<?php echo get_template_directory_uri() . '/assets/img/search_result_plugin_icon.svg' ?>" alt="plugins"><?php echo __( ' Plugins ', 'abcd' ) ?></h4>
+                <h4><img src="<?php echo get_template_directory_uri() . '/assets/img/search_result_plugin_icon.svg' ?>" alt="plugins"><?php echo __( ' Plugins ', 'portfolio' ) ?></h4>
                 <?php
                 while ( have_posts() ) {
                     the_post();
@@ -29,7 +29,7 @@
                 ?>
             </div>
             <div class="blog_posts_content area">
-                <h4><img src="<?php echo get_template_directory_uri() . '/assets/img/search_result_blogpost_icon.svg' ?>" alt="blog posts"><?php echo __( ' Blog posts ', 'abcd' ) ?></h4>
+                <h4><img src="<?php echo get_template_directory_uri() . '/assets/img/search_result_blogpost_icon.svg' ?>" alt="blog posts"><?php echo __( ' Blog posts ', 'portfolio' ) ?></h4>
                 <?php
                 while ( have_posts() ) {
                     the_post();
@@ -49,7 +49,7 @@
                 } ?>
             </div>
             <div class="documentations_content area">
-                <h4><img src="<?php echo get_template_directory_uri() . '/assets/img/search_result_documentations_icons.svg' ?>" alt="documentations"><?php echo __( ' Documentation ', 'abcd' ) ?></h4>
+                <h4><img src="<?php echo get_template_directory_uri() . '/assets/img/search_result_documentations_icons.svg' ?>" alt="documentations"><?php echo __( ' Documentation ', 'portfolio' ) ?></h4>
                 <?php
                 while ( have_posts() ) {
                     the_post();
@@ -75,8 +75,8 @@
             <div class="search-pagination area">
                 <?php
                 the_posts_pagination( array(
-                    'prev_text'          => __( ' << Previous ', 'abcd' ),
-                    'next_text'          => __( 'Next >>', 'abcd' ),
+                    'prev_text'          => __( ' << Previous ', 'portfolio' ),
+                    'next_text'          => __( 'Next >>', 'portfolio' ),
                     'before_page_number' => '',
                     'screen_reader_text' => ' '
                 ) );
@@ -86,10 +86,10 @@
             } else { ?>
                 <div id="post-0" class="post no-results not-found">
                     <div class="container">
-                        <h3 class="entry-title"><?php _e( 'Nothing Found', 'abcd' ); ?></h3>
+                        <h3 class="entry-title"><?php _e( 'Nothing Found', 'portfolio' ); ?></h3>
                         <div class="entry-content">
                             <p>
-                                <?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'abcd' ); ?>
+                                <?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'portfolio' ); ?>
                             </p>
                         </div><!-- .entry-content -->
                         <?php get_search_form(); ?>

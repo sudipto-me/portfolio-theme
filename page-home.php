@@ -3,376 +3,243 @@
  * Template Name: Home Page
  *
  **/
+?>
+
+<?php
+defined( 'ABSPATH' ) || exit();
 get_header();
-$hero_section = get_field( 'hero_section' );
+?>
+    <!--Hello-->
+    <section id="hello" class="container section">
+        <div class="row">
+            <div class="col-md-10">
+                <h2 id="hello_header" class="section__title"><?php echo get_field( 'hello_intro' ) ? get_field( 'hello_intro' ) : __( 'Hi_', 'portfolio' ); ?></h2>
+                <?php echo 'hello world';?>
+                <p class="section__description"><?php echo get_field( 'hello_description' ); ?></p>
+				<?php $cv = get_field( 'download_cv' ); ?>
+                <a href="<?php echo esc_url( $cv['url'] ); ?>" class="section_btn site-btn"><img src="<?php echo get_template_directory_uri() . '/assets/img/img_btn_icon.png' ?>" alt=""><?php echo esc_attr__( 'Download CV', 'portfolio' ); ?></a>
+            </div>
+        </div>
+    </section>
+    <!--Hello-->
+    <hr>
+    <!--Resume-->
+    <section id="resume" class="container section">
+        <div class="row">
+            <div class="col-md-10">
+                <h2 id="resume_header" class="section__title"><?php echo esc_html__( 'Resume_', 'portfolio' ); ?></h2>
+                <p class="section__description"><?php echo get_field( 'resume_intro' ); ?></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 section__resume resume-list">
+                <h3 class="resume-list_title"><?php echo esc_html__( 'Education', 'portfolio' ); ?></h3>
+				<?php
+				$educations = get_field( 'education' );
+				if ( is_array( $educations ) && ! empty( $educations ) ):
+					foreach ( $educations as $education ):
+						?>
 
-$hero_title    = ( $hero_section['hero_section_title'] != '' ) ? $hero_section['hero_section_title'] : 'We Develop Wordpress <br> Plugin That Amaze You!';
-$hero_subtitle = ( $hero_section['hero_section_subtitle'] != '' ) ? $hero_section['hero_section_subtitle'] : 'With rich faq and amazing customer support, we guarantee you the best experience with all of our plugins!';
-$hero_bg       = ( $hero_section['hero_section_bg_image']['url'] ) ? $hero_section['hero_section_bg_image']['url'] : get_template_directory_uri() . '/assets/img/banner.svg';
-$hero_bg_alt   = ( $hero_section['hero_section_bg_image']['alt'] ) ? $hero_section['hero_section_bg_image']['alt'] : 'Hero img';
-if ( have_posts() ):
-    while ( have_posts() ) :
-        the_post();
-        ?>
-        <section class="default-page-with-sidebar area">
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-                <div class="hero_section area">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 wow slideInLeft" data-wow-delay="0.8s" style="visibility: hidden">
-                                <div class="hero_content">
-                                    <h1><?php echo $hero_title; ?></h1>
-                                    <?php echo $hero_subtitle; ?>
-                                    <a href="<?php echo get_post_type_archive_link( 'download' ) ?>" class="site_cta"><?php echo __( 'See Plugins', 'abcd' ); ?> </a>
-                                </div>
-                                <!-- /.hero_content -->
-                            </div>
-                            <!-- /.col-md-6 -->
-                            <div class="col-md-6 wow slideInRight" data-wow-delay="0.9s" style="visibility: hidden">
-                                <div class="hero_img">
-                                    <img src="<?php echo $hero_bg; ?>" alt="<?php echo $hero_bg_alt; ?>">
-                                </div>
-                                <!-- /.hero_img -->
-                            </div>
-                            <!-- /.col-md-6 -->
+                        <div class="resume-list__block">
+                            <p class="resume-list__block-title"><?php echo $education['degree_institution']; ?></p>
+                            <p class="resume-list__block-date"><?php echo $education['degree_timeline']; ?></p>
+                            <p><?php echo $education['degree_summary']; ?></p>
                         </div>
-                        <!-- /.row -->
+					<?php endforeach;endif; ?>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 section__resume resume-list">
+                <h3 class="resume-list_title"><?php echo esc_html__( 'Employment', 'portfolio' ); ?></h3>
+				<?php $employments = get_field( 'employment' );
+				if ( is_array( $employments ) && ! empty( $employments ) ):
+					foreach ( $employments as $employment ) :
+						?>
+                        <div class="resume-list__block">
+                            <p class="resume-list__block-title"><?php echo $employment['employer'] ?></p>
+                            <p class="resume-list__block-date"><?php echo $employment['employment_timeline'] ?></p>
+                            <p><?php echo $employment['job_description'] ?></p>
+                        </div>
+					<?php endforeach;endif; ?>
+            </div>
+        </div>
+        <div class="row section__resume progress-list js-progress-list">
+            <div class="col-md-12">
+                <h3 class="progress-list__title"><?php echo esc_html__( 'General skills', 'portfolio' ); ?></h3>
+            </div>
+			<?php $skills = get_field( 'skills' );
+			if ( is_array( $skills ) && ! empty( $skills ) ):
+				foreach ( $skills as $skill ):?>
+                    <div class="col-md-5 mr-auto">
+                        <div class="progress-list__skill">
+                            <p>
+                                <span class="progress-list__skill-title"><?php echo $skill['skill_name'] ?></span>
+                                <span class="progress-list__skill-value"><?php echo $skill['skill_percentage'] ?>%</span>
+                            </p>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $skill['skill_percentage'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- /.container -->
+				<?php endforeach;endif; ?>
+        </div>
+    </section>
+    <!--Resume-->
+
+    <!--Portfolio-->
+    <section id="portfolio" class="container section">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 id="portfolio_header" class="section__title"><?php echo esc_html__( 'My projects_', 'portfolio' ); ?></h2>
+            </div>
+        </div>
+        <div class="row portfolio-menu">
+            <div class="col-md-12">
+				<?php
+				$project_categories = get_terms( array( 'taxonomy' => 'project_cat', 'hide_empty' => false ) );
+				?>
+                <nav>
+                    <ul>
+                        <li><a href="" data-portfolio-target-tag="all">all</a></li>
+						<?php if ( is_array( $project_categories ) && count( $project_categories ) ): ?>
+							<?php foreach ( $project_categories as $project_cat ): ?>
+                                <li><a href="" data-portfolio-target-tag="<?php echo esc_attr( $project_cat->slug ); ?>"><?php echo esc_attr( $project_cat->name ); ?></a></li>
+							<?php endforeach;endif; ?>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+		<?php
+		$projects = get_posts(
+			array(
+				'post_type'      => 'portfolio-projects',
+				'posts_per_page' => 5,
+				'post_status'    => 'publish'
+			)
+		);
+		if ( is_array( $projects ) && count( $projects ) ):
+		foreach ( $projects as $project ) : ?>
+        <div class="portfolio-cards">
+			<?php
+			$project_category = get_the_terms( $project, 'project_cat' );
+			?>
+            <div class="row project-card" data-toggle="modal" data-target="#portfolioModal" data-portfolio-tag="<?php echo isset( $project_category[0] ) ? esc_attr( $project_category[0]->slug ) : ''; ?>">
+                <div class="col-md-6 col-lg-5 project-card__img">
+                    <a href="<?php echo get_the_permalink( $project ); ?>"><img class="" src="<?php echo get_the_post_thumbnail_url( $project, 'full' ) ?>" alt="project-img"></a>
                 </div>
-                <!-- /.hero_section -->
-                <section class="counter_section area">
-                    <div class="container">
-                        <div class="counter_wrapper">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="counter_box">
-                                        <div class="counter_icon">
-                                            <img src="<?php echo get_template_directory_uri() . "/assets/img/download.svg" ?>" alt="counter one">
-                                        </div>
-                                        <div class="counter_content">
-                                            <h2><span class="counter"><?php echo __( '500', 'abcd' ); ?></span><?php _e( 'K+', 'abcd' ); ?></h2>
-                                            <p><?php echo __( 'Downloads', 'abcd' ); ?></p>
-                                        </div>
-                                    </div>
-                                    <!-- /.counter_box -->
-                                </div>
-                                <!-- /.col-md-4 -->
-                                <div class="col-md-4">
-                                    <div class="counter_box">
-                                        <div class="counter_icon">
-                                            <img src="<?php echo get_template_directory_uri() . "/assets/img/search.svg" ?>" alt="counter two">
-                                        </div>
-                                        <div class="counter_content">
-                                            <h2><span class="counter"><?php _e('24','abcd');?></span><?php _e( 'K+', 'abcd' ); ?></h2>
-                                            <p><?php echo __( 'Happy Customers', 'abcd' ); ?></p>
-                                        </div>
-                                    </div>
-                                    <!-- /.counter_box -->
-                                </div>
-                                <!-- /.col-md-4 -->
-                                <div class="col-md-4">
-                                    <div class="counter_box">
-                                        <div class="counter_icon">
-                                            <img src="<?php echo get_template_directory_uri() . "/assets/img/member.svg" ?>" alt="counter three">
-                                        </div>
-                                        <div class="counter_content">
-                                            <h2><span class="counter"><?php _e('30','abcd');?></span><?php _e( 'K+', 'abcd' ); ?></h2>
-                                            <p><?php echo __( 'Team Member', 'abcd' ); ?></p>
-                                        </div>
-                                    </div>
-                                    <!-- /.counter_box -->
-                                </div>
-                                <!-- /.col-md-4 -->
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                    </div>
-                    <!-- /.container -->
-                </section>
-                <!-- /.counter_section area -->
-                <section class="why_us_section area">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/why_us_bg_new.png'; ?>" alt="why us bg" class="why_us_bg">
-                    <div class="container">
-                        <h2 class="section_title"><?php echo __( 'Why buy from us?', 'abcd' ); ?></h2>
-                        <div class="row">
-                            <?php
-                            if ( have_rows( 'buy_from_us' ) ):
-                                while ( have_rows( 'buy_from_us' ) ):
-                                    the_row();
-                                    ?>
-                                    <div class="wow slideInLeft col-md-4">
-                                        <div class="why_us_wrapper">
-                                            <div class="why_us_img">
-                                                <img src="<?php echo get_sub_field( 'image' )['url']; ?>" alt="why us">
-                                            </div>
-                                            <!-- /.why_us_img -->
-                                            <h3 class="why_us_title"><?php echo get_sub_field( 'title' ); ?></h3>
-                                            <p><?php echo get_sub_field( 'description' ); ?></p>
-                                        </div>
-                                        <!-- /.why_us_wrapper -->
-                                    </div>
-                                    <!-- /.col-md-4 -->
-                                <?php endwhile;endif; ?>
-                        </div>
-                        <!-- /.row -->
-                    </div>
-                    <!-- /.container -->
-                </section>
-                <!-- /.why_us_section area -->
-                <section class="plugin_section area">
-                    <div class="container">
-                        <h2 class="section_title"><?php echo __( 'Our Plugins', 'abcd' ); ?></h2>
-                        <p class="section_subtitle"><?php echo ( get_field( 'plugin_sections_subtitle' ) != '' ) ? get_field( 'plugin_sections_subtitle' ) : __( 'NEW FEATURES! Upsell on Product Pages | Auto pilot mode |', 'abcd' ); ?></p>
-                        <div class="plugin_wrapper">
-                            <div class="row">
-                                <?php
-                                $plugins = get_posts( array(
-                                    'post_type'      => 'download',
-                                    'posts_per_page' => 2,
-                                    'post_status'    => 'publish',
-                                    'meta_key'       => '_edd_download_sales',
-                                    'order'          => 'DESC',
-                                    'orderby'        => 'meta_value_num'
-                                ) );
-                                if ( is_array( $plugins ) && count( $plugins ) ) {
-                                    ?>
-                                    <?php
-                                    $i = 0;
-                                    foreach ( $plugins as $plugin ) {
-                                        ?>
-                                        <div class="wow col-md-6 <?php echo ( $i == 0 ) ? 'slideInLeft' : 'slideInRight' ?>">
-                                            <div class="plugin_box">
-                                                <div class="plugin_img">
-                                                    <a href="<?php echo get_the_permalink( $plugin->ID ); ?>"><img src="<?php echo ( get_field( 'icons', $plugin->ID )['url'] != '' ) ? get_field( 'icons', $plugin->ID )['url'] : get_template_directory_uri() . '/assets/img/plugin_thumbnail.svg' ?>" alt="<?php echo strtolower( get_the_title( $plugin->ID ) ); ?>" class="plugin_icon"></a>
-                                                </div>
-                                                <!-- /.plugin_img -->
-                                                <h3 class="plugin_name"><a href="<?php echo get_the_permalink( $plugin->ID ); ?>"><?php echo get_the_title( $plugin->ID ); ?></a></h3>
-                                                <p><?php echo get_field( 'product_subtitle', $plugin->ID ); ?></p>
-                                                <a href="<?php echo get_the_permalink( $plugin->ID ); ?>"><?php echo __( 'Buy now', 'abcd' ); ?> <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                                            </div>
-                                            <!-- /.plugin_box -->
-                                        </div>
-                                        <!-- /.col-md-6 -->
-                                        <?php
-                                        $i ++;
-                                    }
-                                }
-                                ?>
-                            </div>
-                            <!-- /.row -->
-                            <div class="text-center">
-                                <a href="<?php echo get_post_type_archive_link( 'download' ) ?>" class="site_cta"><img src="<?php echo get_template_directory_uri() . '/assets/img/package.svg'; ?>" alt="package" class="package_icon"><span><?php echo __( 'Explore Our All plugins', 'abcd' ); ?></span></a>
-                            </div>
-                        </div>
-                        <!-- /.plugin_wrapper -->
-                    </div>
-                    <!-- /.container -->
-                </section>
-                <!-- /.plugin_section area -->
-                <section class="wow bounceInBottom testimonial_section area">
-                    <div class="container">
-                        <?php
-                        $testimonials = get_posts( array(
-                            'post_type'      => 'theme-testimonials',
-                            'orderby'        => 'rand',
-                            'posts_per_page' => 3,
-                        ) );
-                        if ( is_array( $testimonials ) && count( $testimonials ) ) { ?>
-                            <div class="testimonial_carousel owl-carousel">
-                                <?php foreach ( $testimonials as $testimonial ) { ?>
-                                    <div class="testimonial_slides">
-                                        <div class="author_img">
-                                            <img src="<?php echo get_the_post_thumbnail_url( $testimonial->ID ) ? get_the_post_thumbnail_url( $testimonial->ID, array( 149, 96 ) ) : get_template_directory_uri() . '/assets/img/testimonial-thumbnail.png'; ?>" alt="<?php echo strtolower( get_the_title( $testimonial->ID ) ); ?>">
-                                        </div>
-                                        <div class="author_ratings">
-                                            <ul>
-                                                <li>
-                                                    <div class="starts-outer">
-                                                        <div class="starts-inner" style="width: <?php echo get_field( 'testimonial_review_count', $testimonial->ID ) * 20 ?>%"></div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <p><img src="<?php echo get_template_directory_uri() . '/assets/img/start_quote.svg'; ?>" alt="start quote" class="quote_img"><?php echo $testimonial->post_content; ?><img src="<?php echo get_template_directory_uri() . '/assets/img/end_quote.svg'; ?>" alt="start quote" class="quote_img"></p>
-                                        <h4 class="author_name"><?php echo get_the_title( $testimonial->ID ); ?></h4>
-                                        <h6 class="author_desig"> <?php echo get_field( 'testimonial_designation', $testimonial->ID ); ?></h6>
-                                    </div>
-                                <?php } ?>
-                            </div>
-                        <?php } ?>
-                    </div>
-                    <!-- /.container -->
-                </section>
-                <!-- /.testimonial_section -->
-                <section class="clients_section area">
-                    <div class="container">
-                        <?php
-                        $clients = get_posts( array(
-                            'post_type'      => 'client-logos',
-                            'orderby'        => 'rand',
-                            'posts_per_page' => 5,
-                        ) );
-                        if ( is_array( $clients ) && count( $clients ) ) { ?>
-                            <div class="wow pulse client_logo_wrapper">
-                                <?php foreach ( $clients as $client ) {
-                                    $get_url = get_field( 'url', $client->ID ); ?>
-                                    <div class="clients_logo">
-                                        <a href="<?php echo ! empty( $get_url ) ? $get_url : '#' ?>"><img src="<?php echo get_the_post_thumbnail_url( $client->ID ); ?>" alt="<?php echo strtolower( get_the_title( $client->ID ) ); ?>"></a>
-                                    </div>
-                                <?php } ?>
-                            </div>
-                            <!-- /.client_logo_wrapper -->
-                        <?php } ?>
-                    </div>
-                    <!-- /.container -->
-                </section>
-                <!-- /.clients_section area -->
-                <section class="faq_section area">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/faq_bg.png'; ?>" alt="faq bg" class="faq_bg">
-                    <div class="container">
-                        <div class="faq_content_wrapper">
-                            <div class="faq_icon">
-                                <img src="<?php echo get_template_directory_uri() . "/assets/img/faq_icon.svg"; ?>" alt="faq icon">
-                            </div>
-                            <h2 class="section_title wow fadeIn"><?php echo __( 'Fequently Asked Questions', 'abcd' ); ?></h2>
-                            <div class="faq_accordion_wrapper accordion wow fadeIn" id="accordionExample">
-                                <?php
-                                $faqs = get_posts( array(
-                                    'post_type'      => 'faq-item',
-                                    'post_status'    => 'publish',
-                                    'posts_per_page' => -1,
-                                    'order' => 'asc'
-                                ) );
-                                if ( is_array( $faqs ) && count( $faqs ) ) {
-                                    foreach ( $faqs as $single_faq ) {
-                                        ?>
-                                        <div class="faq_accordion">
-                                            <div class="faq_accordion_header collapsed" id="heading<?php echo $single_faq->ID ?>" data-toggle="collapse" data-target="#collapse<?php echo $single_faq->ID ?>" aria-expanded="true" aria-controls="collapse<?php echo $single_faq->ID ?>">
-                                                <h4><?php echo $single_faq->post_title; ?></h4>
-                                                <div class="acc_arrow">
-                                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/plus.svg'; ?>" alt="plus" class="plus_icon">
-                                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/minus.svg'; ?>" alt="plus" class="minus_icon">
-                                                </div>
-                                            </div>
+                <div class="col-md-6 col-lg-7 project-card__info">
+                    <a href="<?php echo get_the_permalink( $project ); ?>" class="project-card__title_link"><h3 class="project-card__title"><?php echo esc_html( get_the_title( $project ) ); ?></h3></a>
+                    <p class="project-card__description"><?php echo get_the_excerpt( $project ); ?></p>
+                    <p class="project-card__stack"><?php echo esc_html__( 'Used stack:', 'portfolio' ); ?></p>
+					<?php
+					$used_stacks = get_field( 'used_stacks', $project->ID ); ?>
+					<?php if ( ! empty( $used_stacks ) ): ?>
+                        <ul class="tags">
+							<?php foreach ( $used_stacks as $stack ): ?>
+                                <li><?php echo $stack['stack_name']; ?></li>
+							<?php endforeach; ?>
+                        </ul>
+					<?php endif; ?>
+                    <a href="<?php echo esc_url( get_field( 'project_live_link', $project->ID ) ) ?>" class="project-card__link"><?php echo esc_url( get_field( 'project_live_link', $project->ID ) ) ?></a>
+                </div>
+            </div>
 
-                                            <div id="collapse<?php echo $single_faq->ID ?>" class="faq_accordion_content collapse" aria-labelledby="heading<?php echo $single_faq->ID ?>" data-parent="#accordionExample">
-                                                <p><?php echo $single_faq->post_content; ?></p>
-                                            </div>
-                                        </div>
-                                        <?php
-                                    }
-                                }
-                                ?>
-                            </div>
-                        </div>
-                        <!-- /.faq_content_wrapper -->
-                    </div>
-                    <!-- /.container -->
-                </section>
-                <!-- /.faq_section area -->
+			<?php endforeach;
+			endif; ?>
+    </section>
+    <!--Portfolio-->
 
-                <section class="blog_section area">
-                    <div class="container">
-                        <h2 class="section_title wow fadeIn"><?php echo __( 'Latest Articles', 'abcd' ); ?></h2>
-                        <div class="row">
-                            <?php
-                            $posts = get_posts( array(
-                                'post_type'      => 'post',
-                                'posts_per_page' => 3,
-                                'post_status'    => 'publish',
-                                'orderby'        => 'date',
-                                'order'          => 'DESC'
-                            
-                            ) );
-                            if ( is_array( $posts ) && count( $posts ) ) {
-                                $i = 0;
-                                foreach ( $posts as $single_post ) {
-                                    $animation_class = '';
-                                    if ( $i == 0 ) {
-                                        $animation_class = 'slideInLeft';
-                                    } elseif ( $i == 1 ) {
-                                        $animation_class = 'fadeInDown ';
-                                    } else {
-                                        $animation_class = 'slideInRight';
-                                    }
-                                    ?>
-                                    <div class="col-md-4 wow <?php echo $animation_class; ?>">
-                                        <div class="blog_posts">
-                                            <div class="post_img">
-                                                <a href="<?php echo get_the_permalink( $single_post->ID ); ?>">
-                                                    <img src="<?php echo get_the_post_thumbnail_url( $single_post->ID ) ? get_the_post_thumbnail_url( $single_post->ID ) : get_template_directory_uri() . '/assets/img/post.jpg' ?>" alt="<?php echo strtolower( get_the_title( $single_post->ID ) ); ?>">
-                                                </a>
-                                            </div>
-                                            <div class="post_content">
-                                                <?php
-                                                $post_category = get_the_category( $single_post->ID );
-                                                if ( is_array( $post_category ) && count( $post_category ) ) {
-                                                    ?>
-                                                    <a href="<?php echo esc_url( get_category_link( $post_category[0]->term_id ) ); ?>"><span class="post_cat"><?php echo $post_category[0]->name; ?></span></a>
-                                                    <?php
-                                                }
-                                                ?>
-                                                <h2 class="post_title"><a href="<?php echo get_the_permalink( $single_post->ID ); ?>"><?php echo get_the_title( $single_post->ID ); ?></a></h2>
-                                            </div>
+    <!--Testimonials-->
+    <div id="testimonials" class="section">
+        <div class="background slider-carousel" style="">
+            <div class="container">
+                <div id="carouselTestimonials" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselTestimonials" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselTestimonials" data-slide-to="1"></li>
+                        <li data-target="#carouselTestimonials" data-slide-to="2"></li>
+                        <li data-target="#carouselTestimonials" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+						<?php
+						$testimonials = get_posts(
+							array(
+								'post_type'      => 'testimonials',
+								'posts_per_page' => 4,
+								'post_status'    => 'publish'
+							)
+						);
+						if ( is_array( $testimonials ) && count( $testimonials ) ):
+							for ( $i = 0; $i < count( $testimonials ); $i ++ ):
+								?>
+                                <div class="carousel-item <?php echo ( 0 === $i ) ? 'active' : '' ?>">
+                                    <div class="row">
+                                        <div class="col-md-10 col-sm-10 col-10 mr-auto ml-auto">
+                                            <p class="slider-carousel__title"><?php echo esc_attr( $testimonials[ $i ]->post_title ); ?></p>
+                                            <p class="slider-carousel__caption"><?php echo 'Project: ' . get_field( 'project_name', $testimonials[ $i ]->ID ); ?></p>
+                                            <hr>
+                                            <p class="slider-carousel__description"><?php echo $testimonials[ $i ]->post_content; ?></p>
                                         </div>
-                                        <!-- /.blog_posts -->
                                     </div>
-                                    <!-- /.col-md-4 -->
-                                    <?php
-                                    $i ++;
-                                }
-                            }
-                            ?>
-                        </div>
-                        <!-- /.row -->
+                                </div>
+							<?php endfor;endif; ?>
                     </div>
-                    <!-- /.container -->
-                </section>
-                <!-- /.blog_section area -->
-                <section class="guarantee_section area">
-                    <div class="container">
-                        <div class="guarantee_wrapper wow slideInTop">
-                            <div class="moneyback_content">
-                                <div class="award_img">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/award.svg' ?>" alt="award-img">
-                                </div>
-                                <?php
-                                $money_back_options          = get_field( 'money_back_section' );
-                                $money_back_section_title    = ( $money_back_options['section_title'] != '' ) ? $money_back_options['section_title'] : __( '7 Days Money Back Guarantee', 'abcd' );
-                                $money_back_section_subtitle = $money_back_options['section_subtitle'];
-                                $money_back_list             = $money_back_options['list_items'];
-                                
-                                ?>
-                                <div class="award_content">
-                                    <h2><?php echo $money_back_section_title; ?></h2>
-                                    <p><?php echo $money_back_section_subtitle; ?></p>
-                                </div>
+                    <a class="carousel-control-prev" href="#testimonials" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#testimonials" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                    <div class="slider-carousel__circle">
+                        <p><i class="fa fa-quote-right" aria-hidden="true"></i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Testimonials-->
+    <!--Blog-->
+    <section id="blog" class="container section">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 id="blog_header" class="section__title"><?php echo esc_html__( 'Latest Posts_', 'portfolio' ); ?></h2>
+            </div>
+        </div>
 
+		<?php
+		$posts = get_posts(
+			array(
+				'post_type'      => 'post',
+				'post_status'    => 'publish',
+				'posts_per_page' => 3
+			)
+		);
+		if ( is_array( $posts ) && ! empty( $posts ) ): ?>
+        <div class="row post-cards">
+			<?php foreach ( $posts as $post ): ?>
+                <div class="col-md-4">
+                    <a href="<?php echo get_the_permalink( $post->ID ); ?>">
+                        <div class="post-cards__card">
+                            <div class="post-cards__img">
+                                <img src="<?php echo ! empty( get_the_post_thumbnail_url( $post->ID, 'full' ) ) ? get_the_post_thumbnail_url( $post->ID, 'full' ) : get_template_directory_uri() . '/assets/img/post.png' ?>" alt="blog_img">
                             </div>
-                            <div class="moneyback_list">
-                                <ul>
-                                    <?php
-                                    if ( is_array( $money_back_list ) && count( $money_back_list ) ) {
-                                        foreach ( $money_back_list as $single ) {
-                                            ?>
-                                            <li><img src="<?php echo get_template_directory_uri() . '/assets/img/fill_tick.svg' ?>" alt="tick"><p><?php echo $single['single_item']; ?></p></li>
-                                            <?php
-                                        }
-                                    }
-                                    ?>
-                                </ul>
+                            <div class="post-cards__info">
+                                <p class="post-cards__date"><?php echo get_the_date( "F j, Y", $post->ID ); ?></p>
+                                <h3 class="post-cards_title"><?php echo get_the_title( $post->ID ); ?></h3>
+                                <p class="post-cards_description"><?php echo get_the_excerpt( $post->ID ); ?></p>
                             </div>
                         </div>
-                        <!-- /.guarantee_wrapper -->
-                    </div>
-                    <!-- /.container -->
-                </section>
-                <!-- /.guarantee_section area -->
-            </article>
-        </section>
-    <?php
-    endwhile;
-endif;
+                    </a>
+                </div>
+			<?php endforeach;
+			endif; ?>
+        </div>
+    </section>
+    <!--Blog-->
+
+<?php
 get_footer();

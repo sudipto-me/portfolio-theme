@@ -1,0 +1,36 @@
+.main-header{
+  background-color: $color-accent;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 40px;
+
+  &::before{
+    background: $linear-gradient-background;
+    height: 100%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    content: '';
+    z-index: 0;
+  }
+
+  @media screen and (max-width: 990px) {
+      margin-bottom: 0px;
+  }
+}
+.header-title {
+  text-align: center;
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+.archive .header-title {
+  padding-top: 150px;
+}
+.portfolio-page-title {
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
